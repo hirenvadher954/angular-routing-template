@@ -1,6 +1,5 @@
-import { AuthService } from './../../../../services/auth/auth.service';
-import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import {AuthService} from 'src/app/services/auth/auth.service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService) {
+  }
 
-  ngOnInit(): void {}
-  logout(): void {
-    this.auth.logout();
+  ngOnInit(): void {
+  }
+
+  async logout(): Promise<void> {
+    await this.auth.logout();
   }
 }
